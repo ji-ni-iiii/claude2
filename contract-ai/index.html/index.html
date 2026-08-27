@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contract AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Contract AI</h1>
+    <p>계약 · 법령 · 세무 검토 AI</p>
+</header>
+
+<main>
+
+    <!-- 계약서 업로드 -->
+    <section class="card">
+
+        <h2>📄 계약서 업로드</h2>
+
+        <input
+            type="file"
+            id="contractFile"
+            accept=".pdf,.doc,.docx"
+        >
+
+        <button onclick="analyzeContract()">
+            계약서 분석
+        </button>
+
+        <div id="analysisResult"></div>
+
+    </section>
+
+
+    <!-- 계약정보 -->
+    <section class="card">
+
+        <h2>📋 계약정보</h2>
+
+        <label>계약명</label>
+        <input id="contractName">
+
+        <label>계약금액</label>
+        <input
+            id="contractAmount"
+            type="number"
+        >
+
+        <label>계약 시작일</label>
+        <input
+            id="startDate"
+            type="date"
+        >
+
+        <label>준공일</label>
+        <input
+            id="completionDate"
+            type="date"
+        >
+
+    </section>
+
+
+    <!-- 취득세 -->
+    <section class="card">
+
+        <h2>💰 취득세 계산</h2>
+
+        <label>과세표준</label>
+
+        <input
+            id="taxBase"
+            type="number"
+        >
+
+        <label>세율</label>
+
+        <input
+            id="taxRate"
+            type="number"
+            step="0.01"
+        >
+
+        <button onclick="calculateTax()">
+            취득세 계산
+        </button>
+
+        <div id="taxResult"></div>
+
+    </section>
+
+
+    <!-- AI -->
+    <section class="card ai-card">
+
+        <h2>🤖 AI 계약·법령 도우미</h2>
+
+        <div id="chatMessages"></div>
+
+        <div class="chat-input">
+
+            <input
+                id="userQuestion"
+                placeholder="계약서나 법령에 대해 질문하세요."
+            >
+
+            <button onclick="sendQuestion()">
+                전송
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
